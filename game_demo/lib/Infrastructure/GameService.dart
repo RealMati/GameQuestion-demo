@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:game_demo/Domain/entities/Grade.dart';
+import 'package:game_demo/Domain/entities/Question.dart';
 import 'package:game_demo/Domain/entities/SubjectAndLevel.dart';
 import 'package:http/http.dart' as http;
 import 'package:game_demo/Infrastructure/core/url.dart';
@@ -34,6 +35,31 @@ class GameService {
       return r;
     } else {
       throw Exception('Failed to load games');
+    }
+  }
+
+  Future<List<Question>> getQuestion() async {
+    final response =
+        await http.get(Uri.parse('$baseUrl/gamequestion-detail/1/13/18/'));
+    // print(response.statusCode);
+    try {
+      if (response.statusCode == 200) {
+        // print("before games");
+        final Map<String, dynamic> decodedResponse = json.decode(response.body);
+
+        // print(decodedResponse);
+        final List<dynamic> games = decodedResponse['data'];
+        // print("games");
+        // print(games);
+        final r =
+            List<Question>.from(games.map((model) => Question.fromJson(model)));
+
+        return r;
+      } else {
+        throw Exception('Failed to load games');
+      }
+    } catch (e) {
+      throw Exception('An error occurred while fetching the question: $e');
     }
   }
 }

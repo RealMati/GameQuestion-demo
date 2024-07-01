@@ -10,22 +10,22 @@ void main() {
 }
 
 final _router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/question',
   routes: [
     GoRoute(
       name: "game_levels",
       path: '/game_levels',
-      builder: (context, state) => GameLevels(),
+      builder: (context, state) => const GameLevels(),
     ),
     GoRoute(
       name: "home",
       path: '/home',
-      builder: (context, state) => GameHome(),
+      builder: (context, state) => const GameHome(),
     ),
     GoRoute(
       name: "question",
       path: '/question',
-      builder: (context, state) => GameQuestion(),
+      builder: (context, state) => const GameQuestion(),
     ),
   ],
 );

@@ -1,5 +1,6 @@
 import 'package:game_demo/Domain/GameRepositoryImp.dart';
 import 'package:game_demo/Domain/entities/Grade.dart';
+import 'package:game_demo/Domain/entities/Question.dart';
 import 'package:game_demo/Domain/entities/SubjectAndLevel.dart';
 import 'package:game_demo/Infrastructure/GameService.dart';
 
@@ -15,5 +16,10 @@ class GameRepository implements GameRepositoryImp {
   @override
   Future<List<SubjectAndLevel>> getSubjectAndLevel() {
     return _gameService.getSubjectAndLevel();
+  }
+
+  @override
+  Future<List<Question>> getQuestion() {
+    return _gameService.getQuestion();
   }
 }

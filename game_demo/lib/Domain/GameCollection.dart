@@ -1,4 +1,5 @@
 import 'package:game_demo/Domain/entities/Grade.dart';
+import 'package:game_demo/Domain/entities/Question.dart';
 import 'package:game_demo/Domain/entities/SubjectAndLevel.dart';
 import 'package:game_demo/Infrastructure/GameRepository.dart';
 import 'package:game_demo/Infrastructure/GameService.dart';
@@ -14,5 +15,10 @@ class GameCollection {
   Future<List<SubjectAndLevel>> getSubjectAndLevel() async {
     final repo = GameRepository(GameService());
     return repo.getSubjectAndLevel();
+  }
+
+  Future<List<Question>> getQuestion() async {
+    final repo = GameRepository(GameService());
+    return repo.getQuestion();
   }
 }
