@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game_demo/Presentation/GameHome.dart';
 import 'package:game_demo/Presentation/GameLevels.dart';
 import 'package:game_demo/Presentation/GameQuestion.dart';
+import 'package:game_demo/Presentation/Onboarding.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,7 +11,7 @@ void main() {
 }
 
 final _router = GoRouter(
-  initialLocation: '/question',
+  initialLocation: '/onboarding',
   routes: [
     GoRoute(
       name: "game_levels",
@@ -26,6 +27,11 @@ final _router = GoRouter(
       name: "question",
       path: '/question',
       builder: (context, state) => const GameQuestion(),
+    ),
+    GoRoute(
+      name: "onboarding",
+      path: '/onboarding',
+      builder: (context, state) => const Onboarding(),
     ),
   ],
 );
