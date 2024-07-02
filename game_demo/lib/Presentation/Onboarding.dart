@@ -45,6 +45,7 @@ class _OnboardingState extends State<Onboarding> {
           description: "Signup right now and get your grades up."),
     ];
     return Scaffold(
+      backgroundColor: Colors.deepPurple[100],
       body: Column(
         children: [
           Expanded(
@@ -103,6 +104,9 @@ class _OnboardingState extends State<Onboarding> {
             margin: EdgeInsets.all(40),
             width: double.infinity,
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple[400],
+              ),
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
                   // print("Done");
@@ -114,7 +118,9 @@ class _OnboardingState extends State<Onboarding> {
                 );
               },
               child: Text(
-                  currentIndex == contents.length - 1 ? "Continue" : "Next"),
+                currentIndex == contents.length - 1 ? "Continue" : "Next",
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
           )
         ],
